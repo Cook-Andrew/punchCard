@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html lang="en-US">
  <head>
 	 <title>Untitled</title>
 	 <meta charset="UTF-8"/>
 	 <link rel="stylesheet" href="" type="text/css"/>
  </head>
 	 <body>
-	 <button onclick='punch()'>Add Punch</button>
+	 <button onclick='addPunch()'>Add Punch</button>
 		<script>
-				var addPunch = 0;
+			var addPunch;
+			localStorage.punches = 0;
+			function addPunch(){
 				var password =  prompt("Enter password:", "????");
 				if(password == "employeePass03"){
-					addPunch = parseFloat(prompt("How many riders?", "1"));
+					addPunch = prompt("How many riders?", 1);
+					var punches = localStorage.punches;
+					punches += parseFloat(addPunch);
+					alert(punches);
 				} else {
 					alert("Wrong password!");
 				}
