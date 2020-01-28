@@ -1,26 +1,78 @@
 <!DOCTYPE html>
 <html lang="en-US">
- <head>
-	 <title>Untitled</title>
-	 <meta charset="UTF-8"/>
-	 <link rel="stylesheet" href="" type="text/css"/>
- </head>
-	 <body>
-	 <button onclick='addPunch()'>Add Punch</button>
-		<script>
-			var addPunch;
-			localStorage.punches = 0;
-			function addPunch(){
-				var password =  prompt("Enter password:", "????");
-				if(password == "employeePass03"){
-					addPunch = prompt("How many riders?", 1);
-					var punches = localStorage.punches;
-					punches += parseFloat(addPunch);
-					alert(punches);
-				} else {
-					alert("Wrong password!");
-				}
+
+<head>
+	<title>Punch Card</title>
+	<meta charset="UTF-8" />
+	<style>
+		body{
+			background-color: blue;
+			font-size: 3em;
+			color:white;
+		}
+		#container{
+			width: 70vw;
+			margin:auto;
+		}
+		h1{
+			text-align: center;
+			font-size: 10vw;
+		}
+		span{
+			text-align: left;
+		}
+	</style>
+</head>
+
+<body>
+	<script>
+		document.write("<h1>Andy's Electric Train</h1><div id='container'>")
+		var addPunch;
+		var punches = localStorage.getItem('punches');
+		var i;
+		document.write("<span>");
+		for (i = parseFloat(punches); i > 0; i--) {
+			document.write("🚂 ");
+			/*if(i == 6){
+				document.write("<br/>");
 			}
-		</script>
-	 </body>
- </html>
+			if(i == 11){
+				document.write("<br/>");
+			}*/
+		}
+		document.write("</span>");
+		if (parseFloat(punches)>=9){
+			document.write("<br/>FREE RIDE!<br/><button onclick='claim()'>Claim</button>");
+		}
+		document.write(" <button onclick='addPunch()'>Add Punch</button><br/>")
+		function addPunch() {
+			var password = prompt("Enter password:", "????");
+			if (password == "employeePass03") {
+				addPunch = prompt("How many riders?", 1);
+				punches = parseFloat(addPunch) + parseFloat(punches);
+				localStorage.setItem('punches', punches);
+				//alert(punches);
+				location.reload();
+			} else {
+				alert("Wrong password!");
+			}
+		}
+
+		function claim(){
+			var password = prompt("Enter password:", "????");
+			if (password == "employeePass03") {
+				if(confirm("Are you sure?")){
+				punches = parseFloat(punches) - 10;
+				localStorage.setItem('punches', punches);
+				//alert(punches);
+				location.reload();
+				}
+			} else {
+				alert("Wrong password!");
+			}
+		}
+		document.write("</div>")
+	</script>
+</body>
+
+</html>
