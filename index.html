@@ -5,20 +5,23 @@
 	<title>Punch Card</title>
 	<meta charset="UTF-8" />
 	<style>
-		body{
+		body {
 			background-color: blue;
 			font-size: 3em;
-			color:white;
+			color: white;
 		}
-		#container{
+
+		#container {
 			width: 70vw;
-			margin:auto;
+			margin: auto;
 		}
-		h1{
+
+		h1 {
 			text-align: center;
 			font-size: 10vw;
 		}
-		span{
+
+		span {
 			text-align: left;
 		}
 	</style>
@@ -41,10 +44,11 @@
 			}*/
 		}
 		document.write("</span>");
-		if (parseFloat(punches)>=9){
+		if (parseFloat(punches) >= 9) {
 			document.write("<br/>FREE RIDE!<br/><button onclick='claim()'>Claim</button>");
 		}
 		document.write(" <button onclick='addPunch()'>Add Punch</button><br/>")
+
 		function addPunch() {
 			var password = prompt("Enter password:", "????");
 			if (password == "employeePass03") {
@@ -58,14 +62,14 @@
 			}
 		}
 
-		function claim(){
+		function claim() {
 			var password = prompt("Enter password:", "????");
 			if (password == "employeePass03") {
-				if(confirm("Are you sure?")){
-				punches = parseFloat(punches) - 10;
-				localStorage.setItem('punches', punches);
-				//alert(punches);
-				location.reload();
+				if (confirm("Are you sure?")) {
+					punches = parseFloat(punches) - 9;
+					localStorage.setItem('punches', punches);
+					//alert(punches);
+					location.reload();
 				}
 			} else {
 				alert("Wrong password!");
