@@ -3,7 +3,7 @@
     id          = "com.andystrain.punchcard"
     versionCode = "10"
     version     = "1.0.0" >
-
+  <preference name="phonegap-version" value="cli-9.0.0" />
   <name>Andy's Train Punch Card</name>
 
   <description>
