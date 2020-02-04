@@ -32,6 +32,9 @@
 		document.write("<h1>Andy's Electric Train</h1><div id='container'>")
 		var addPunch;
 		var punches = localStorage.getItem('punches');
+		if(punches == null || punches == undefined){
+			punches = 0;
+		}
 		var i;
 		document.write("<span>");
 		for (i = parseFloat(punches); i > 0; i--) {
