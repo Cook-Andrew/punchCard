@@ -5,12 +5,12 @@
 	<title>Punch Card</title>
 	<meta charset="UTF-8" />
 	<style>
-		@import url('https://fonts.googleapis.com/css?family=PT+Mono|Righteous&display=swap');
+		@import url('https://fonts.googleapis.com/css?family=PT+Mono|Teko&display=swap');
 		body {
 			background-color: blue;
 			font-size: 3em;
 			color: white;
-			font-family: 'Righteous', cursive;
+			font-family: 'Teko', sans-serif;
 		}
 
 		#container {
@@ -42,7 +42,7 @@
 
 <body>
 	<script>
-		document.write("<h1>Andy's Electric Train</h1><div id='container'>")
+		document.write("<h1>Andy's Electric Train</h1><hr/><div id='container'>")
 		var addPunch;
 		var punches = localStorage.getItem('punches');
 		if(punches == null || punches == undefined){
@@ -61,7 +61,7 @@
 		}
 		document.write("</span>");
 		if (parseFloat(punches) >= 9) {
-			document.write("<br/>FREE RIDE!<br/><button onclick='claim()'>Claim</button><br/>");
+			document.write("<br/>FREE RIDE!<hr/><br/><button onclick='claim()'>Claim</button><br/>");
 		}
 		document.write(" <button onclick='addPunch()'>Add Punch</button><br/>")
 
