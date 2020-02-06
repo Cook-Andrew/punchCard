@@ -6,9 +6,10 @@
 	<meta charset="UTF-8" />
 	<style>
 		@import url('https://fonts.googleapis.com/css?family=PT+Mono&display=swap');
+
 		html {
 			margin: 2vw;
-			border: 2px solid white;
+			border: 60px solid transparent;
 			padding: 2vw;
 			background-color: #3066be;
 			font-size: 2em;
@@ -16,6 +17,7 @@
 			font-family: 'PT Mono', monospace;
 			min-height: 90vh;
 			text-align: center;
+			border-image: url(negativeBezelBorder.png) 62 round;
 		}
 
 		#container {
@@ -32,15 +34,17 @@
 		span {
 			text-align: center;
 		}
+
 		button {
 			background-color: white;
 			border: none;
-			color: #090c9b;
+			color: #3066be;
 			padding: 1vw 2vw;
 			text-align: center;
 			text-decoration: none;
 			display: inline-block;
 			font-size: 4vw;
+			font-family: 'PT Mono', monospace;
 		}
 	</style>
 </head>
@@ -50,7 +54,7 @@
 		document.write("<h1>Andy's Electric Train</h1><div id='container'><hr/>")
 		var addPunch;
 		var punches = localStorage.getItem('punches');
-		if(punches == null || punches == undefined){
+		if (punches == null || punches == undefined) {
 			punches = 0;
 		}
 		var i;
@@ -66,13 +70,21 @@
 		}
 		document.write("</span><hr/>");
 		if (parseFloat(punches) >= 9) {
-			document.write("<br/>FREE RIDE!<br/><button onclick='claim()'>Claim</button>");
+			if (parseFloat(punches) >= 18) {
+				var freeRides = Math.floor(punches / 9) + " ";
+				var plural = "S";
+			} else {
+				var freeRides = "";
+				var plural = "";
+			}
+			document.write("<br/>" + freeRides + "FREE RIDE" + plural +
+			"!<br/><br/><button onclick='claim()'>Claim</button>");
 		}
-		document.write("<br/><button onclick='addPunch()'>Add Punch</button><br/><br/>")
+		document.write("   <button onclick='addPunch()'>Add Punch</button><br/><br/>")
 
 		function addPunch() {
-			var password = prompt("Enter password:", "????");
-			if (password == "employeePass03") {
+			var password = prompt("Employee ID:", "*****");
+			if (password == "Aet20") {
 				addPunch = prompt("How many riders?", 1);
 				punches = parseFloat(addPunch) + parseFloat(punches);
 				localStorage.setItem('punches', punches);
@@ -84,8 +96,8 @@
 		}
 
 		function claim() {
-			var password = prompt("Enter password:", "????");
-			if (password == "employeePass03") {
+			var password = prompt("Employee ID:", "*****");
+			if (password == "Aet20") {
 				if (confirm("Are you sure?")) {
 					punches = parseFloat(punches) - 9;
 					localStorage.setItem('punches', punches);
