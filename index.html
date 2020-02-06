@@ -10,7 +10,7 @@
 		html {
 			margin: 2vw;
 			border: 60px solid transparent;
-			padding: 2vw;
+			padding: 0;
 			background-color: #3066be;
 			font-size: 2em;
 			color: white;
@@ -78,9 +78,9 @@
 				var plural = "";
 			}
 			document.write("<br/>" + freeRides + "FREE RIDE" + plural +
-			"!<br/><br/><button onclick='claim()'>Claim</button>");
+			"!<br/><br/><button onclick='claim()'>Claim</button>   ");
 		}
-		document.write("   <button onclick='addPunch()'>Add Punch</button><br/><br/>")
+		document.write("<button onclick='addPunch()'>Add Punch</button><br/><br/>")
 
 		function addPunch() {
 			var password = prompt("Employee ID:", "*****");
